@@ -94,7 +94,7 @@ int main()
 			while (!isProved(mNum, -200000, 200000))
 			{
 				cls;
-				cout << "Введите число(от -200000 до 200000):\t" << mNum;
+				cout << "Введите число(от -200000 до 200000):\t";
 				getline(cin, mNum);
 			}
 			cls; 
@@ -135,9 +135,7 @@ int main()
 			}
 			cls;
 			research(stoi(mNum));
-
-			cout << "\n\n\nДля продолжения нажмите любую клавишу!" << endl;
-			cin.ignore();
+			system("pause");
 			break;
 		}
 		case 4: // output
@@ -150,7 +148,7 @@ int main()
 			}
 			outList();
 			cout << "\n\nДля продолжения нажмите любую клавишу!";
-			cin.ignore();
+			system("pause");
 			break;
 		}
 		case 5: // summ
@@ -169,7 +167,7 @@ int main()
 			}
 			cout << "Сумма равна = " << sum();
 			cout << "\n\nДля продолжения нажмите любую клавишу!";
-			cin.ignore();
+			system("pause");
 			break;
 		}
 		case 6: // exit
@@ -247,14 +245,20 @@ void del()
 }
 void research(int num)
 {
+	Integer* start = list;
+	bool isThere = false;
 	for (int i = 1; i <= cnt; i++)
 	{
 		if (list->num == num)
 		{
 			cout << "Это число(" << num << ") есть в списке, его номер = " << i << endl << endl;
+			isThere = true;
 		}
 		list = list->next;
 	}
+	list = start;
+	if (!isThere)
+		cout << "Этого числа нет в списке!" << endl << endl;
 }
 int sum()
 {
