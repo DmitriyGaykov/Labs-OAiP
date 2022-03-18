@@ -14,6 +14,9 @@ bool isProvedFl(string num)
 	int cnt = 0;
 	bool isNotNum = false;
 
+	if (num.size() == 1 && num[0] == '.')
+		return false;
+
 	for (int i = 0; i < num.size(); i++)
 	{
 		for (int j = 0; j < strlen(nums); j++)
