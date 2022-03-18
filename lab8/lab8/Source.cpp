@@ -3,6 +3,7 @@
 //элементом оче - реди удалить первых три элемента.
 // Максимальный размер очереди ввести с клавиатуры.
 #include <iostream>
+#include <windows.h>
 #include "check.h"
 
 struct Char
@@ -69,6 +70,7 @@ void del()
 
 int main()
 {
+	ru;
 	string mN,
 		   mStr;
 	int point;
@@ -130,10 +132,10 @@ int main()
 			cout << "Enter a symbol: ";
 			getline(cin, mStr);
 
-			while (mStr.size() != 1 || mStr == "")
+			while (mStr.size() != 1 || mStr == "" || mStr== " ")
 			{
 				cls;
-				cout << "Enter one symbol: ";
+				cout << "Enter one symbol(non-void): ";
 				getline(cin, mStr);
 			}
 			cls;
