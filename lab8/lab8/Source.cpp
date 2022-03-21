@@ -160,8 +160,8 @@ int main()
 		{
 			if(cnt == 5)
 				del2();
-			
-			cnt++;
+			else cnt++;
+
 			if (cnt > MAX)
 			{
 				cout << "List is filled!" << endl;
@@ -171,7 +171,7 @@ int main()
 			cout << "Enter a symbol: ";
 			getline(cin, mStr);
 
-			while (mStr.size() != 1 || mStr == "" || mStr== " ")
+			while (mStr.size() != 1 || mStr == "" || mStr== " " || mStr == " ")
 			{
 				cls;
 				cout << "Enter one symbol(non-void): ";
