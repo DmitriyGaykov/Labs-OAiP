@@ -105,7 +105,11 @@ int main()
 			cls;
 			cout << "Ââåäèòå èìÿ ñòóäåíòà: ";
 			getline(cin, students->head->FirstName);
+#if defined(TEST)
 			while (CountWord(students->head->FirstName) != 1)
+#else
+			while (CountWord(students->head->FirstName) != 1 || !isProved(students->head->FirstName, "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿzyxwvutsrqponmlkjihgfedcba") || !((students->head->FirstName[0] >= 'A' && students->head->FirstName[0] <= 'Z') || (students->head->FirstName[0] >= 'À' && students->head->FirstName[0] <= 'ß')))
+#endif
 			{
 				cls;
 				cout << "Ââåäèòå èìÿ ñòóäåíòà îäíèì ñëîâîì: ";
@@ -448,7 +452,7 @@ void sort(Student** arr, int N)
 		return;
 	Student* num;
 	for (int i = 1; i < N; i++)
-		for (int j = i; j > 0 && arr[j - 1]->avr > arr[j]->avr; j--)
+		for (int j = i; j > 0 && arr[j - 1]->avr < arr[j]->avr; j--)
 		{
 			num = arr[j - 1];
 			arr[j - 1] = arr[j];
