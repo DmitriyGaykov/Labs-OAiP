@@ -1,8 +1,8 @@
-//РљР°Р¶РґС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР° СЃС‚СѓРґРµРЅС‚РѕРІ СЃРѕРґРµСЂР¶РёС‚ С„Р°РјРёР»РёСЋ, РёРјСЏ, РіРѕРґ СЂРѕР¶РґРµРЅРёСЏ, РєСѓСЂСЃ, РЅРѕРјРµСЂ РіСЂСѓРїРїС‹,
-//РѕС†РµРЅРєРё РїРѕ РїСЏС‚Рё РїСЂРµРґРјРµС‚Р°Рј.РЈРїРѕСЂСЏРґРѕС‡РёС‚СЊ СЃС‚СѓРґРµРЅС‚РѕРІ РїРѕ РєСѓСЂСЃСѓ, РїСЂРёС‡РµРј СЃС‚СѓРґРµРЅС‚С‹ РѕРґРЅРѕРіРѕ РєСѓСЂСЃР° РґРѕР»Р¶РЅС‹ 
-//СЂР°СЃРїРѕР»Р°РіР°С‚СЊСЃСЏ РІ Р°Р»С„Р°РІРёС‚ - РЅРѕРј РїРѕСЂСЏРґРєРµ.РќР°Р№С‚Рё СЃСЂРµРґРЅРёР№ Р±Р°Р»Р» РєР°Р¶РґРѕР№ РіСЂСѓРїРїС‹ РїРѕ РєР°Р¶РґРѕРјСѓ РїСЂРµРґРјРµС‚Сѓ.
-//РћРїСЂРµРґРµР»РёС‚СЊ СЃР°РјРѕРіРѕ СЃС‚Р°СЂС€РµРіРѕ СЃС‚СѓРґРµРЅС‚Р° Рё СЃР°РјРѕРіРѕ РјР»Р°РґС€РµРіРѕ СЃС‚СѓРґРµРЅС‚РѕРІ.Р”Р»СЏ РєР°Р¶РґРѕР№ РіСЂСѓРїРїС‹ РЅР°Р№С‚Рё Р»СѓС‡С€РµРіРѕ 
-//СЃ С‚РѕС‡РєРё Р·СЂРµРЅРёСЏ СѓСЃРїРµРІР°РµРјРѕСЃС‚Рё СЃС‚СѓРґРµРЅС‚Р°
+//Каждый элемент списка студентов содержит фамилию, имя, год рождения, курс, номер группы,
+//оценки по пяти предметам.Упорядочить студентов по курсу, причем студенты одного курса должны 
+//располагаться в алфавит - ном порядке.Найти средний балл каждой группы по каждому предмету.
+//Определить самого старшего студента и самого младшего студентов.Для каждой группы найти лучшего 
+//с точки зрения успеваемости студента
 
 #define TEST
 #define MAXCNTSTUDENTINGROUP 20
@@ -22,7 +22,7 @@ struct Student
 	int marks[5] = {10, 10, 10, 10, 10};
 	int maxMark = -1;
 
-	string exams[5] = {"Р СѓСЃСЃРєРёР№", "РњР°С‚РµРјР°С‚РёРєР°", "РСЃС‚РѕСЂРёСЏ", "РђРЅРіР»РёР№СЃРєРёР№", "Р¤РёР·РёРєР°"};
+	string exams[5] = {"Русский", "Математика", "История", "Английский", "Физика"};
 
 	Student* next;
 	Student* head;
@@ -65,23 +65,23 @@ int main()
 	{
 		ru;
 		cls;
-		cout << "1) Р”РѕР±Р°РІРёС‚СЊ СЃС‚СѓРґРµРЅС‚Р°!\n"
-			<< "2) Р’С‹РІРµСЃС‚Рё СЃСЂРµРґРЅРёР№ Р±Р°Р»Р» РєР°Р¶РґРѕР№ РіСЂСѓРїРїС‹!\n"
-			<< "3) Р’С‹РІРµСЃС‚Рё РґР°РЅРЅС‹Рµ Рѕ СЃР°РјРѕРј РјР»Р°РґС€РµРј Рё СЃР°РјРѕРј СЃС‚Р°СЂС€РµРј СЃС‚СѓРґРµРЅС‚Рµ\n"
-			<< "4) Р’С‹РІРµСЃС‚Рё С‚РѕРї СЃС‚СѓРґРµРЅС‚РѕРІ РїРѕ СѓСЃРїРµРІР°РµРјРѕСЃС‚Рё РёР· РєР°Р¶РґРѕР№ РіСЂСѓРїРїС‹!\n"
-			<< "5) Р’С‹РІРµСЃС‚Рё РІСЃРµС… СЃС‚СѓРґРµРЅС‚РѕРІ!\n"
-			<< "Р’РІРѕРґРёС‚Рµ: ";
+		cout << "1) Добавить студента!\n"
+			<< "2) Вывести средний балл каждой группы!\n"
+			<< "3) Вывести данные о самом младшем и самом старшем студенте\n"
+			<< "4) Вывести топ студентов по успеваемости из каждой группы!\n"
+			<< "5) Вывести всех студентов!\n"
+			<< "Вводите: ";
 		getline(cin, check);
 
 		while (!isProved(check, 1, 5))
 		{
 			cls;
-			cout << "1) Р”РѕР±Р°РІРёС‚СЊ СЃС‚СѓРґРµРЅС‚Р°!\n"
-				<< "2) Р’С‹РІРµСЃС‚Рё СЃСЂРµРґРЅРёР№ Р±Р°Р»Р» РєР°Р¶РґРѕР№ РіСЂСѓРїРїС‹!\n"
-				<< "3) Р’С‹РІРµСЃС‚Рё РґР°РЅРЅС‹Рµ Рѕ СЃР°РјРѕРј РјР»Р°РґС€РµРј Рё СЃР°РјРѕРј СЃС‚Р°СЂС€РµРј СЃС‚СѓРґРµРЅС‚Рµ\n"
-				<< "4) Р’С‹РІРµСЃС‚Рё С‚РѕРї СЃС‚СѓРґРµРЅС‚РѕРІ РїРѕ СѓСЃРїРµРІР°РµРјРѕСЃС‚Рё РёР· РєР°Р¶РґРѕР№ РіСЂСѓРїРїС‹!\n"
-				<< "5) Р’С‹РІРµСЃС‚Рё РІСЃРµС… СЃС‚СѓРґРµРЅС‚РѕРІ!\n"
-				<< "Р’РІРѕРґРёС‚Рµ РѕС‚ 1 РґРѕ 5: ";
+			cout << "1) Добавить студента!\n"
+				<< "2) Вывести средний балл каждой группы!\n"
+				<< "3) Вывести данные о самом младшем и самом старшем студенте\n"
+				<< "4) Вывести топ студентов по успеваемости из каждой группы!\n"
+				<< "5) Вывести всех студентов!\n"
+				<< "Вводите от 1 до 5: ";
 			getline(cin, check);
 		}
 		cls;
@@ -94,65 +94,65 @@ int main()
 		{
 			cnt++;
 			students->head = students->end;
-			cout << "Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ СЃС‚СѓРґРµРЅС‚Р°: ";
+			cout << "Введите фамилию студента: ";
 			getline(cin, students->head->LastName);
-			while (CountWord(students->head->LastName) != 1 || !isProved(students->head->LastName, "ABCDEFGHIJKLMNOPQRSTUVWXYZРђР‘Р’Р“Р”Р•РЃР–Р—РР™РљР›РњРќРћРџР РЎРўРЈР¤РҐР¦Р§РЁР©РЄР«Р¬Р­Р®РЇР°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЉС‹СЊСЌСЋСЏzyxwvutsrqponmlkjihgfedcba") || !((students->head->LastName[0] >= 'A' && students->head->LastName[0] <= 'Z') || (students->head->LastName[0] >= 'Рђ' && students->head->LastName[0] <= 'РЇ')))
+			while (CountWord(students->head->LastName) != 1 || !isProved(students->head->LastName, "ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюяzyxwvutsrqponmlkjihgfedcba") || !((students->head->LastName[0] >= 'A' && students->head->LastName[0] <= 'Z') || (students->head->LastName[0] >= 'А' && students->head->LastName[0] <= 'Я')))
 			{
 				cls;
-				cout << "Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ СЃС‚СѓРґРµРЅС‚Р° РѕРґРЅРёРј СЃР»РѕРІРѕРј: ";
+				cout << "Введите фамилию студента одним словом: ";
 				getline(cin, students->head->LastName);
 			}
 			cls;
-			cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ СЃС‚СѓРґРµРЅС‚Р°: ";
+			cout << "Введите имя студента: ";
 			getline(cin, students->head->FirstName);
 #if defined(TEST)
 			while (CountWord(students->head->FirstName) != 1)
 #else
-			while (CountWord(students->head->FirstName) != 1 || !isProved(students->head->FirstName, "ABCDEFGHIJKLMNOPQRSTUVWXYZРђР‘Р’Р“Р”Р•РЃР–Р—РР™РљР›РњРќРћРџР РЎРўРЈР¤РҐР¦Р§РЁР©РЄР«Р¬Р­Р®РЇР°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЉС‹СЊСЌСЋСЏzyxwvutsrqponmlkjihgfedcba") || !((students->head->FirstName[0] >= 'A' && students->head->FirstName[0] <= 'Z') || (students->head->FirstName[0] >= 'Рђ' && students->head->FirstName[0] <= 'РЇ')))
+			while (CountWord(students->head->FirstName) != 1 || !isProved(students->head->FirstName, "ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюяzyxwvutsrqponmlkjihgfedcba") || !((students->head->FirstName[0] >= 'A' && students->head->FirstName[0] <= 'Z') || (students->head->FirstName[0] >= 'А' && students->head->FirstName[0] <= 'Я')))
 #endif
 			{
 				cls;
-				cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ СЃС‚СѓРґРµРЅС‚Р° РѕРґРЅРёРј СЃР»РѕРІРѕРј: ";
+				cout << "Введите имя студента одним словом: ";
 				getline(cin, students->FirstName);
 			}
 			cls;
 
 #if !defined(TEST)
-			cout << "Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ: ";
+			cout << "Введите дату рождения: ";
 			getline(cin, students->head->date);
 			while (!checkDate(students->head->date))
 			{
 				cls;
-				cout << "Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ(Р¤РћР РњРђРў: Р”Р”.РњРњ.Р“Р“Р“Р“): ";
+				cout << "Введите дату рождения(ФОРМАТ: ДД.ММ.ГГГГ): ";
 				getline(cin, students->head->date);
 			}
 			cls;
 #endif
 
-			cout << "Р’РІРµРґРёС‚Рµ РєСѓСЂСЃ СЃС‚СѓРґРµРЅС‚Р°: ";
+			cout << "Введите курс студента: ";
 			getline(cin, check);
 			while (!isProved(check, 1, 4))
 			{
 				cls;
-				cout << "Р’РІРµРґРёС‚Рµ РєСѓСЂСЃ СЃС‚СѓРґРµРЅС‚Р° РѕС‚ 1 РґРѕ 4): ";
+				cout << "Введите курс студента от 1 до 4): ";
 				getline(cin, check);
 			}
 			students->head->course = stoi(check);
 			cls;
 
-			cout << "Р’РІРµРґРёС‚Рµ РіСЂСѓРїРїСѓ СЃС‚СѓРґРµРЅС‚Р°: ";
+			cout << "Введите группу студента: ";
 			getline(cin, check);
 			while (!isProved(check, 1, 5))
 			{
 				cls;
-				cout << "Р’РІРµРґРёС‚Рµ РіСЂСѓРїРїСѓ СЃС‚СѓРґРµРЅС‚Р°(РѕС‚ 1 РґРѕ 5): ";
+				cout << "Введите группу студента(от 1 до 5): ";
 				getline(cin, check);
 			}
 			students->head->group = stoi(check);
 			cls;
 
 #if !defined(TEST)
-			cout << "Р’РІРµРґРёС‚Рµ РѕС†РµРЅРєРё РїРѕ СЌРєР·Р°РјРµРЅР°Рј!" << endl;
+			cout << "Введите оценки по экзаменам!" << endl;
 			int sum = 0;
 			for (int i = 0; i < 5; i++)
 			{
@@ -161,7 +161,7 @@ int main()
 				while (!isProved(check, 1, 10))
 				{
 					cls;
-					cout << students->head->exams[i] << "(РѕС‚ 1 РґРѕ 10) : ";
+					cout << students->head->exams[i] << "(от 1 до 10) : ";
 					getline(cin, check);
 				}
 				students->head->marks[i] = stoi(check);
@@ -171,7 +171,7 @@ int main()
 			students->head->avr = float(sum) / 5.0;
 #endif
 
-			cout << "Р’С‹ РґРѕР±Р°РІРёР»Рё:\n\n";
+			cout << "Вы добавили:\n\n";
 			students->head->GetInfo();
 			course[students->head->course - 1].group[students->head->group - 1].student[course[students->head->course - 1].group[students->head->group - 1].cnt] = students->head;
 			course[students->head->course - 1].group[students->head->group - 1].cnt++;
@@ -187,10 +187,10 @@ int main()
 			for (int i = 0; i < 4; i++)
 			{
 				ent;
-				cout << "РљСѓСЂСЃ:\t\t\t\t\t\t\t\t" << i + 1 << endl << endl;
+				cout << "Курс:\t\t\t\t\t\t\t\t" << i + 1 << endl << endl;
 				for (int j = 0; j < 5; j++)
 				{
-					cout << "Р“СЂСѓРїРїР°:\t\t\t\t\t\t\t\t" << j + 1 << endl << endl;
+					cout << "Группа:\t\t\t\t\t\t\t\t" << j + 1 << endl << endl;
 					if (course[i].group[j].cnt == 0)
 						continue;
 					for (int k = 0; k < 5; k++)
@@ -198,8 +198,8 @@ int main()
 						for(int m = 0; m < course[i].group[j].cnt; m++)
 							sum += course[i].group[j].student[m]->avr;
 						course[i].group[j].avr[k] = sum / course[i].group[j].cnt;
-						cout << "РџСЂРµРґРјРµС‚:\t\t\t\t\t\t\t" << students->exams[k] << endl
-							<< "РЎСЂРµРґРЅРёР№ Р±Р°Р»Р» РіСЂСѓРїРїС‹:\t\t\t\t\t\t" << course[i].group[j].avr[k] << endl << endl;
+						cout << "Предмет:\t\t\t\t\t\t\t" << students->exams[k] << endl
+							<< "Средний балл группы:\t\t\t\t\t\t" << course[i].group[j].avr[k] << endl << endl;
 						sum = 0;
 					}
 					ent; ent;
@@ -302,13 +302,13 @@ int main()
 			{
 				if (max == i)
 				{
-					cout << "РЎР°РјС‹Р№ СЃС‚Р°СЂС‹Р№ СЃС‚СѓРґРµРЅС‚:\n\n";
+					cout << "Самый старый студент:\n\n";
 					students->head->GetInfo();
 					ent; ent;
 				}
 				if (min == i)
 				{
-					cout << "РЎР°РјС‹Р№ РјРѕР»РѕРґРѕР№ СЃС‚СѓРґРµРЅС‚:\n\n";
+					cout << "Самый молодой студент:\n\n";
 					students->head->GetInfo();
 					ent; ent;
 				}
@@ -354,18 +354,18 @@ void append()
 
 void Student::GetInfo()
 {
-	cout << "РРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃС‚СѓРґРµРЅС‚Рµ:\n"
-		<< "Р¤Р°РјРёР»РёСЏ:\t\t\t\t\t" << this->LastName << endl
-		<< "РРјСЏ:\t\t\t\t\t\t" << this->FirstName << endl
-		<< "РљСѓСЂСЃ:\t\t\t\t\t\t" << this->course << endl
-		 << "Р“СЂСѓРїРїР°:\t\t\t\t\t\t" << this->group << endl
-		 << "Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ:\t\t\t\t\t" << this->date << endl << endl
-		 << "РћС†РµРЅРєРё РїРѕ СЌРєР·Р°РјРµРЅР°Рј:\t\t\t\t\t" << endl;
+	cout << "Информация о студенте:\n"
+		<< "Фамилия:\t\t\t\t\t" << this->LastName << endl
+		<< "Имя:\t\t\t\t\t\t" << this->FirstName << endl
+		<< "Курс:\t\t\t\t\t\t" << this->course << endl
+		 << "Группа:\t\t\t\t\t\t" << this->group << endl
+		 << "Дата рождения:\t\t\t\t\t" << this->date << endl << endl
+		 << "Оценки по экзаменам:\t\t\t\t\t" << endl;
 	ent;
 	outArr(this->marks, 5);
 	ent;
 	ent;
-	cout << "РЎСЂРµРґРЅРёР№ Р±Р°Р»Р»:\t\t\t\t\t" << this->avr;
+	cout << "Средний балл:\t\t\t\t\t" << this->avr;
 	ent;
 }
 
@@ -503,10 +503,10 @@ void top()
 				{
 					if (arr[m] == course[i].group[j].student[k])
 					{
-						cout << "Р¤Р°РјРёР»РёСЏ:\t\t\t\t" << course[i].group[j].student[k]->LastName << endl
-							<< "РљСѓСЂСЃ:\t\t\t\t\t" << course[i].group[j].student[k]->course << endl
-							<< "Р“СЂСѓРїРїР°:\t\t\t\t\t" << course[i].group[j].student[k]->group << endl
-							<< "РЎСЂРµРґРЅРёР№ Р±Р°Р»Р»:\t\t\t\t" << course[i].group[j].student[k]->avr << endl << endl << endl;
+						cout << "Фамилия:\t\t\t\t" << course[i].group[j].student[k]->LastName << endl
+							<< "Курс:\t\t\t\t\t" << course[i].group[j].student[k]->course << endl
+							<< "Группа:\t\t\t\t\t" << course[i].group[j].student[k]->group << endl
+							<< "Средний балл:\t\t\t\t" << course[i].group[j].student[k]->avr << endl << endl << endl;
 
 						k = 1000;
 						m = 1000;
