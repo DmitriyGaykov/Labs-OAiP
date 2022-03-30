@@ -1,4 +1,4 @@
-﻿//Бином Ньютона определяется как : Сnm = n!/ (m!(n – m)!)
+//Бином Ньютона определяется как : Сnm = n!/ (m!(n – m)!)
 //Рекурсивно описать функцию  C(m, n), где 0 <= m <= n для би - номинального коэффициента Сn.
 //
 //Формулы имеют следующий вид :
@@ -7,8 +7,8 @@
 #include <iostream>
 #include <windows.h>
 #include "check.h"
-//#define TEST
-int fact(int m, int f = 1);
+
+int fact(int m, int fact = 1);
 float fC(int N, int M);
 
 void main()
@@ -41,10 +41,7 @@ void main()
 	cout << "M  = " << m << endl
 		 << "N  = " << n << endl;
 
-#if defined(TEST)
 	cout << "Fact N = " << fact(n) << endl;
-#endif
-
 	if (m == 0 || m == n)
 	{
 		C = 1;
@@ -57,18 +54,14 @@ void main()
 		 << "Проверка по формуле: Cnm = " << fC(n - 1, m) + fC(n - 1, m - 1) << endl;
 }
 
-int fact(int n, int f)
+int fact(int n, int fact)
 {
-	if (n - 1 == 0 || n <= 0)		return f;
-	else 
-	{
-		f *= n * (n - 1);
-		return fact(n - 2, f); 
-	}
+	if (n - 1 == 0)		return fact;
+	else				return fact *= n * (n - 1);
 }
 
 float fC(int n, int m)
 {
 	float C;
-	return C = float(fact(n)) / (float((fact(m)) * float(fact(n - m))));
+	return C = float(fact(n)) / float((fact(m)) * float(fact(n - m)));
 }
