@@ -10,17 +10,17 @@ void main()
 	setlocale(LC_ALL, "ru");
 	float y;
 	string check;
-	cout << "Введите N: ";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ N: ";
 	gl(check);
 	while (!isProved(check, 1, 2000000))
 	{
 		cls;
-		cout << "Введите N(1 - 2.000.000): ";
+		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ N(1 - 2.000.000): ";
 		gl(check);
 	}
 	cls;
 	n = stoi(check);
-	cout << "Функция равна = " << f(n) << endl;
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ = " << f(n) << endl;
 }
 
 float f(int N, float F)
@@ -35,3 +35,4 @@ float f(int N, float F)
 		return f(N - 1, F);
 	}
 }
+
