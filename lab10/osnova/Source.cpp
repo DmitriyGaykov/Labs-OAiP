@@ -7,8 +7,6 @@
 const int MAX = 5;
 set<int> combs;
 
-void remove(vector<int> numbers, int n);
-
 void main()
 {
 	setlocale(LC_ALL, "ru");
@@ -21,7 +19,6 @@ void main()
 	while (!isProved(check, 1, MAX))
 	{
 		cls;
-		cout << fact(7) << endl;
 		cout << "ќшибка. ¬ведите N(1 - " << MAX << "): ";
 		gl(check);
 	}
