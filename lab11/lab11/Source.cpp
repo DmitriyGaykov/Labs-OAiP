@@ -29,6 +29,7 @@ void main()
 	int count = 0,
 		point;
 	bool isExit = false;
+	
 	while (!isExit)
 	{
 		cls;
