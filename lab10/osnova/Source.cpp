@@ -6,6 +6,7 @@
 
 const int MAX = 5;
 set<int> combs;
+void remove(vector<int>, int);
 
 void main()
 {
@@ -28,7 +29,7 @@ void main()
 	for (int i = 0, num; i < n; i++)
 	{
 		isRep = false;
-		num = rand() % MAX + 1;
+		num = rand() % n + 1;
 		for (int j : numbers)
 		{
 			if (j == num)
@@ -37,7 +38,7 @@ void main()
 				isRep = true;
 				break;
 			}
-			
+
 		}
 		if (!isRep)
 		{
@@ -45,7 +46,7 @@ void main()
 		}
 	}
 	cout << "Созданные числа: \t";
-	for(auto i : numbers)
+	for (auto i : numbers)
 	{
 		cout << i << ";\t";
 	}
@@ -63,7 +64,7 @@ void remove(vector<int> numbers, int n)
 {
 	bool isRep;
 	int Comb = 0,
-			  mainN = 0;
+		mainN = 0;
 	int* Nums = new int[n];
 	if (combs.size() != fact(n))
 	{

@@ -7,8 +7,7 @@ using namespace std;
 #define gl(str)  getline(cin,str)
 int fact(int n, int f = 1)
 {
-	if (n - 1 == 0 || n <= 0)
-		return f;
+	if (n - 1 == 0 || n <= 0)		return f;
 	else
 	{
 		f *= n * (n - 1);
@@ -400,24 +399,17 @@ void sortMethodPuz(int* arr, int N)
 {
 	int num;
 	bool isSorted = false;
-
-	for (int i = 0; i < N; i++)
+	while (!isSorted)
 	{
-		if (arr[i] > arr[i + 1])
+		isSorted = true;
+		for (int i = 0; i < N - 1; i++)
 		{
-			num = arr[i];
-			arr[i] = arr[i + 1];
-			isSorted = true;
-			arr[i + 1] = num;
-		}
-		if (N == i + 2)
-		{
-			if (!isSorted)
-				break;
-			else
+			if (arr[i] > arr[i + 1])
 			{
+				num = arr[i];
+				arr[i] = arr[i + 1];
 				isSorted = false;
-				i = -1;
+				arr[i + 1] = num;
 			}
 		}
 	}

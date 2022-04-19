@@ -9,8 +9,8 @@
 struct Tree
 {
 	int value;
-	Tree *left;
-	Tree *right;
+	Tree* left;
+	Tree* right;
 } *tree;
 
 Tree* createTree();
@@ -29,7 +29,7 @@ void main()
 	int count = 0,
 		point;
 	bool isExit = false;
-	
+
 	while (!isExit)
 	{
 		cls;
@@ -204,7 +204,7 @@ void main()
 			pause;
 			break;
 		}
-		case 9:
+		case 9: // summ
 		{
 			if (tree == nullptr)
 			{
@@ -222,7 +222,7 @@ void main()
 
 Tree* createTree()
 {
-	Tree *tree = new Tree;
+	Tree* tree = new Tree;
 	tree->left = nullptr;
 	tree->right = nullptr;
 	tree->value = 0;
@@ -307,7 +307,7 @@ void printTree(Tree* tree)
 		printTree(tempL);
 	}
 }
-Tree* clearTree(Tree* tree){
+Tree* clearTree(Tree* tree) {
 	Tree* tempR = tree->right;
 	Tree* tempL = tree->left;
 	if (tempR != nullptr)

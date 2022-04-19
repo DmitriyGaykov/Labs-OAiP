@@ -1,4 +1,4 @@
-// sqrt(1 + (n + 1) * sqrt(1 + (n + 2) * sqrt(1 + (n + n)*sqrt))))
+﻿// sqrt(1 + (n + 1) * sqrt(1 + (n + 2) * sqrt(1 + (n + n)*sqrt))))
 #include <iostream>
 #include "check.h"
 
@@ -10,17 +10,17 @@ void main()
 	setlocale(LC_ALL, "ru");
 	float y;
 	string check;
-	cout << "Enter N: ";
+	cout << "������� N: ";
 	gl(check);
 	while (!isProved(check, 1, 2000000))
 	{
 		cls;
-		cout << "Warning. Enter N(1 - 2.000.000): ";
+		cout << "������� N(1 - 2.000.000): ";
 		gl(check);
 	}
 	cls;
 	n = stoi(check);
-	cout << "Y = " << f(n) << endl;
+	cout << "������� ����� = " << f(n) << endl;
 }
 
 float f(int N, float F)
@@ -35,3 +35,4 @@ float f(int N, float F)
 		return f(N - 1, F);
 	}
 }
+

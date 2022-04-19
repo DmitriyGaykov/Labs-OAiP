@@ -7,8 +7,7 @@ using namespace std;
 #define gl(str)  getline(cin,str)
 int fact(int n, int f = 1)
 {
-	if (n - 1 == 0 || n <= 0)
-		return f;
+	if (n - 1 == 0 || n <= 0)		return f;
 	else
 	{
 		f *= n * (n - 1);

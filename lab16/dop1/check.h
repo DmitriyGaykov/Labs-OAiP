@@ -7,8 +7,7 @@ using namespace std;
 #define gl(str)  getline(cin,str)
 int fact(int n, int f = 1)
 {
-	if (n - 1 == 0 || n <= 0)
-		return f;
+	if (n - 1 == 0 || n <= 0)		return f;
 	else
 	{
 		f *= n * (n - 1);
@@ -400,24 +399,17 @@ void sortMethodPuz(int* arr, int N)
 {
 	int num;
 	bool isSorted = false;
-
-	for (int i = 0; i < N; i++)
+	while (!isSorted)
 	{
-		if (arr[i] > arr[i + 1])
+		isSorted = true;
+		for (int i = 0; i < N - 1; i++)
 		{
-			num = arr[i];
-			arr[i] = arr[i + 1];
-			isSorted = true;
-			arr[i + 1] = num;
-		}
-		if (N == i + 2)
-		{
-			if (!isSorted)
-				break;
-			else
+			if (arr[i] > arr[i + 1])
 			{
+				num = arr[i];
+				arr[i] = arr[i + 1];
 				isSorted = false;
-				i = -1;
+				arr[i + 1] = num;
 			}
 		}
 	}
@@ -470,4 +462,33 @@ void quickSort(int* arr, int first, int last)
 	} while (f < l);
 	if (first < l) quickSort(arr, first, l);
 	if (f < last) quickSort(arr, f, last);
+}
+
+int getHoarBorder(int* A, int sm, int em)
+{
+	int i = sm - 1, j = em + 1;
+	int brd = A[sm];
+	int buf;
+	while (i < j)
+	{
+		while (A[--j] > brd);
+		while (A[++i] < brd);
+		if (i < j)
+		{
+			buf = A[j];
+			A[j] = A[i];
+			A[i] = buf;
+		};
+	}
+	return j;
+}
+int* SortMethodHoar(int* A, int sm, int em)
+{
+	if (sm < em)
+	{
+		int hb = getHoarBorder(A, sm, em);
+		SortMethodHoar(A, sm, hb);
+		SortMethodHoar(A, hb + 1, em);
+	}
+	return A;
 }
